@@ -33,14 +33,22 @@ export const typeDefs = gql`
         symbol: String!
     }
 
+    type Auth {
+        error: String
+        redirect: String
+        user: User
+    }
+
     type Query {
-        user(id: String): User!
-        trades(user_id: String): [Trade]
-        cashTransactions(user_id: String): [CashTransaction]
-        watchlist(user_id: String): [Watchlist]
+        user(id: String!): User
+        trades(user_id: String!): [Trade]
+        cashTransactions(user_id: String!): [CashTransaction]
+        watchlist(user_id: String!): [Watchlist]
     }
 
     type Mutation {
-         
+        register(email: String, username: String, password: String!): Auth!
+        login(email: String, username: String, password: String!): Auth!
     }
+
 `

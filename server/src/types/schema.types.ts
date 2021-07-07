@@ -1,4 +1,4 @@
-interface TTrade {
+export interface TTrade {
     id?: number
     time?: Date
     user_id?: string
@@ -7,21 +7,21 @@ interface TTrade {
     shares?: number
 }
 
-interface TCashTransaction {
+export interface TCashTransaction {
     id?: number
     amount?: number
     user_id?: string
     user?: TUser 
 }
 
-interface TWatchlist {
+export interface TWatchlist {
     id?: number
     user_id?: string
     user: TUser
     symbol: string
 }
 
-interface TUser {
+export interface TUser {
     id?: string
     username?: string
     email?: string
