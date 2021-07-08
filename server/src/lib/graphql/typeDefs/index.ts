@@ -32,7 +32,6 @@ export const typeDefs = gql`
     type Watchlist {
         id: ID!
         user_id: String!
-        user: User!
         symbol: String!
     }
 
@@ -53,6 +52,8 @@ export const typeDefs = gql`
         login(email: String, username: String, password: String!): Token!
         cashIn(amount: Float!): CashTransaction!
         cashOut(amount: Float!): CashTransaction!
+        addWatchlist(symbol: String!): Watchlist!
+        removeWatchlist(symbol: String!): Watchlist!
     }
 
 `

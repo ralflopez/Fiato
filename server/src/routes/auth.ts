@@ -96,7 +96,18 @@ router.post('/login', async (req, res) => {
     })
 })
 
-router.get('/', (req, res) => res.send('response'))
+router.get('/', async (req, res) => {
+    const watchlist: any = await prisma.watchlist.delete({
+        where: {
+            user_id_symbol: {
+                user_id: 'ckqujmnje000070uryasznrcq',
+                symbol: 'bitcoin'
+            }
+        }
+    })
+    console.log(watchlist)
+    res.send('ok')
+})
 
 
 // handle logout
