@@ -31,10 +31,11 @@ model Trade {
 }
 
 model CashTransaction {
-  id      Int    @id @default(autoincrement())
+  id      Int      @id @default(autoincrement())
+  time    DateTime @default(now())
   amount  Float
   user_id String
-  user    User   @relation(fields: [user_id], references: [id])
+  user    User     @relation(fields: [user_id], references: [id])
 }
 
 model Watchlist {
