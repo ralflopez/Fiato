@@ -1,22 +1,21 @@
-//@ts-nocheck
-import './App.css';
-import { BrowserRouter as Router, Switch, Link } from 'react-router-dom'
-import Login from './pages/auth/login'
-import Signup from './pages/auth/signup'
-import Logout from './pages/auth/logout'
-import Page from './pages/Page'
+import "./App.css"
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
+import Login from "./pages/auth/Login"
+import Signup from "./pages/auth/Signup"
+import Logout from "./pages/auth/Logout"
+import Home from "./pages/Home"
 
 function App() {
   return (
     <Router>
       <Switch>
-        <Link exact path="/" component={Page} />
-        <Link exact path="/login" component={Login} />
-        <Link exact path="/signup" component={Signup} />
-        <Link exact path="/logout" component={Logout} />
+        <Route exact path='/' component={Home} />
+        <Route exact path='/login' component={Login} />
+        <Route exact path='/signup' component={Signup} />
+        <Route exact path='/logout' component={Logout} />
       </Switch>
     </Router>
-  );
+  )
 }
 
-export default App;
+export default App
