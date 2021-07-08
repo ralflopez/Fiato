@@ -7,7 +7,8 @@ export const cookieName: string = 'afcicaetsostoken'
 
 export const context = (context: ExpressContext) => {
     // get token from req cookies
-    const accessToken = context.req.cookies[cookieName]
+    const cookieValue: string | null = context.req.cookies[cookieName]
+    const accessToken: string = cookieValue?.split(' ')[1] || ''
 
     // verify token
     let user: any = null
@@ -18,7 +19,5 @@ export const context = (context: ExpressContext) => {
     return {
         ...context,
         user_id: user?.id,
-        setCookies: new Array(),
-        setHeaders: new Array()
     }
 }

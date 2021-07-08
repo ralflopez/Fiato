@@ -33,10 +33,8 @@ export const typeDefs = gql`
         symbol: String!
     }
 
-    type Auth {
-        error: String
-        redirect: String
-        user: User
+    type Token {
+        token: String
     }
 
     type Query {
@@ -47,8 +45,8 @@ export const typeDefs = gql`
     }
 
     type Mutation {
-        register(email: String, username: String, password: String!): Auth!
-        login(email: String, username: String, password: String!): Auth!
+        register(email: String, username: String, password: String!): User!
+        login(email: String, username: String, password: String!): Token!
     }
 
 `

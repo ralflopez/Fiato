@@ -53,10 +53,10 @@ router.post('/register', async (req, res) => {
 // existing user
 router.post('/login', async (req, res) => {
     const { username, email, password } = req.body
-
+    console.log(req.body)
     // check if username v email
     if (!username && !email) {
-        res.status(403).json({ error: 'Please enter a username of email' })
+        res.status(403).json({ error: 'Please enter a username or email' })
     }
 
     // check if username of email is valid
@@ -85,17 +85,18 @@ router.post('/login', async (req, res) => {
     })
 
     // set cookie
-    res.cookie(cookieName, accessToken, {
+    console.log(accessToken)
+    res.cookie('access-token', accessToken, {
         maxAge: 60 * 60 * 24 * 30 * 1000,
         httpOnly: true,
-    })
-
-    res.status(200).json({
+    }).json({
         id: user?.id,
         username: user?.username,
         email: user?.email
     })
 })
+
+router.get('/', (req, res) => res.send('response'))
 
 
 // handle logout
