@@ -1,16 +1,9 @@
 import React, { useReducer } from 'react'
-import { gql, useMutation } from '@apollo/client'
+import { useMutation } from '@apollo/client'
 import { formInit, TFormFields, TFormFieldsAction } from './login.types'
 import { Redirect } from 'react-router-dom'
 import cookie from 'js-cookie'
-
-const LOGIN_USER = gql`
-  mutation Login($username: String, $email: String, $password: String!) {
-    login(username: $username, email: $email, password: $password) {
-      token
-    }
-}
-`
+import { LOGIN_USER } from '.././../graphql/mutations/auth'
 
 export const cookieName: string = 'afcicaetsostoken'
 

@@ -1,17 +1,9 @@
 import React, { useReducer } from 'react'
-import { gql, useMutation } from '@apollo/client'
+import { useMutation } from '@apollo/client'
 import { formInit, TFormFields, TFormFieldsAction } from './login.types'
 import { Redirect } from 'react-router-dom'
+import { REGISTER_USER } from '.././../graphql/mutations/auth'
 
-const REGISTER_USER = gql`
-    mutation Register($username: String!, $email: String!, $password: String!) {
-        register(username: $username, email: $email, password: $password) {
-            id
-            email
-            username
-        }
-    }
-`
 
 const formReducer = (state: TFormFields, action: TFormFieldsAction): TFormFields => {
     switch(action.field) {
