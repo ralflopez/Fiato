@@ -4,6 +4,7 @@ import Login from "./pages/auth/Login"
 import Signup from "./pages/auth/Signup"
 import Logout from "./pages/auth/Logout"
 import Home from "./pages/Home"
+import Cash from "./pages/Cash"
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route exact path='/login' component={Login} />
         <Route exact path='/signup' component={Signup} />
         <Route exact path='/logout' component={Logout} />
+        <Route exact path='/cash' component={Cash} />
       </Switch>
     </Router>
   )
