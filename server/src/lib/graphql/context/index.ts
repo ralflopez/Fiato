@@ -12,15 +12,21 @@ export const context = (context: ExpressContext) => {
     const accessToken: string = cookieValue?.split(' ')[1] || ''
 
     // verify token
-    let user: any = null
+    let token: any = null
     try {
-        user = jwt.verify(accessToken, process.env.JWT_SECRET as string)
+        token = jwt.verify(accessToken, process.env.JWT_SECRET as string)
+        // issue refresh token
+        const secret = process.env.JWT_SECRET || 'jwtsecretabcd'
+        token = {
+            id: jwt.sign({ id: token.id }, secret, { expiresIn: '1h' })
+        }
     } catch (err) {}
 
     // put in context object
     const newContext: MyContext = {
         ...context,
-        user_id: user?.id
+        user_id: token?.id || 'ckqujnoic000770ury7njqs21'
+        // user_id: token?.id || 'ckqujmnje000070uryasznrcq'
     }
 
     return newContext

@@ -13,7 +13,7 @@ export const typeDefs = gql`
     type Trade {
         id: ID!
         user_id: String!
-        user: User!
+        user: User
         symbol: String!
         price: Float!
         shares: Int!
@@ -39,12 +39,18 @@ export const typeDefs = gql`
         token: String
     }
 
+    type Portfolio {
+        symbol: String!
+        shares: Int!
+    }
+
     type Query {
         user(id: String!): User
         trades(user_id: String!): [Trade]
         getCash: Cash!
         cashTransactions(user_id: String!): [CashTransaction]
         watchlist(user_id: String!): [Watchlist]
+        portfolio(): [Portfolio]
     }
 
     type Mutation {
@@ -54,6 +60,8 @@ export const typeDefs = gql`
         cashOut(amount: Float!): CashTransaction!
         addWatchlist(symbol: String!): Watchlist!
         removeWatchlist(symbol: String!): Watchlist!
+        buy(symbol: String!, shares: Int!): Trade!
+        sell(symbol: String!, shares: Int!): Trade!
     }
 
 `
