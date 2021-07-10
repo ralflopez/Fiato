@@ -79,7 +79,7 @@ export const login = async (_: null, {email, username, password}: Args, context:
     // create token
     const secret = process.env.JWT_SECRET || 'jwtsecretabcd'
     const accessToken: string = jwt.sign({ id: user?.id }, secret, {
-        expiresIn: '5min'
+        expiresIn: '1hr'
     })
     
     return { token: `Bearer ${accessToken}`}

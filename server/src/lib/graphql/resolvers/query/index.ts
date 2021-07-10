@@ -1,1 +1,5 @@
+export { getCash } from './cashTranasction'
+export { getPortfolio } from './portfolio'
 export { getUser } from './user'
+export { getWatchlist } from './watchlist'
+export { getTradeTransactions } from './trade'

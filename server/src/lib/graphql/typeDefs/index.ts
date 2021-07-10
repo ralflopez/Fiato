@@ -5,15 +5,11 @@ export const typeDefs = gql`
         id: String!
         username: String!
         email: String!
-        Trade: [Trade]
-        CashTransaction: [CashTransaction]
-        Watchlist: [Watchlist]
     }
 
     type Trade {
         id: ID!
         user_id: String!
-        user: User
         symbol: String!
         price: Float!
         shares: Int!
@@ -42,15 +38,15 @@ export const typeDefs = gql`
     type Portfolio {
         symbol: String!
         shares: Int!
+        price: Float!
     }
 
     type Query {
-        user(id: String!): User
-        trades(user_id: String!): [Trade]
-        getCash: Cash!
-        cashTransactions(user_id: String!): [CashTransaction]
-        watchlist(user_id: String!): [Watchlist]
-        portfolio(): [Portfolio]
+        user: User!
+        cash: Cash!,
+        portfolio: [Portfolio!]!
+        watchlist: [Watchlist!]!
+        trade: [Trade!]!
     }
 
     type Mutation {
