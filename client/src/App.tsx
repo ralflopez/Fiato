@@ -4,19 +4,23 @@ import Login from "./pages/auth/Login"
 import Signup from "./pages/auth/Signup"
 import Logout from "./pages/auth/Logout"
 import Home from "./pages/Home"
-import Cash from "./pages/Cash"
+import { CssBaseline, ThemeProvider } from '@material-ui/core'
+import { theme } from "./styles/theme"
 
 function App() {
   return (
-    <Router>
-      <Switch>
-        <Route exact path='/' component={Home} />
-        <Route exact path='/login' component={Login} />
-        <Route exact path='/signup' component={Signup} />
-        <Route exact path='/logout' component={Logout} />
-        <Route exact path='/cash' component={Cash} />
-      </Switch>
-    </Router>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Router>
+        <Switch>
+          <Route exact path='/' component={Home} />
+          <Route exact path='/login' component={Login} />
+          <Route exact path='/signup' component={Signup} />
+          <Route exact path='/logout' component={Logout} />
+          {/* <Route exact path='/cash' component={Cash} /> */}
+        </Switch>
+      </Router>
+    </ThemeProvider>
   )
 }
 
