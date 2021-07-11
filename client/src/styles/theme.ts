@@ -29,5 +29,12 @@ export const theme: Theme = createTheme({
     shape: {
         borderRadius: 7,
     },
-    shadows: Array(25).fill("none") as Shadows
+    shadows: Array(25).fill("none") as Shadows,
+    typography: {
+        fontFamily: "'Montserrat Alternates', sans-serif",
+        button: {
+            fontFamily: "'Montserrat Alternates', sans-serif",
+            textTransform: 'none'
+        }
+    },
 })
