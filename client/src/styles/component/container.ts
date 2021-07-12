@@ -1,14 +1,10 @@
-import { Grid, withStyles } from "@material-ui/core";
+import { Container, withStyles } from "@material-ui/core";
 
-export const Container = withStyles({
+export const StyledContainer = withStyles((theme) => ({
     root: {
-        maxWidth: '1000px', 
-        margin: '0 auto', 
-        paddingLeft: '10px', 
-        paddingRight: '10px',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#f5f5f5',
+        [theme.breakpoints.only("md")]: {
+            paddingLeft: theme.spacing(5),
+            paddingRight: theme.spacing(5),
+        },
     }
-})(Grid)
+}))(Container)

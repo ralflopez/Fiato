@@ -26,7 +26,6 @@ export const context = (context: ExpressContext) => {
     const newContext: MyContext = {
         ...context,
         user_id: token?.id || 'ckqujnoic000770ury7njqs21'
-        // user_id: token?.id || 'ckqujmnje000070uryasznrcq'
     }
 
     return newContext
